@@ -1184,6 +1184,26 @@ import { appRouter } from '../../../components/appRouter';
                 case 'PageDown':
                     playbackManager.previousChapter(currentPlayer);
                     break;
+
+                // Custom handlers
+                case 'z':
+                    playbackManager.setSubtitleOffset(
+                        Math.round((playbackManager.getPlayerSubtitleOffset() + .1) * 10) / 10,
+                        currentPlayer
+                    );
+                    if(subtitleSyncOverlay) {
+                        subtitleSyncOverlay.update();
+                    }
+                    break;
+                case 'x':
+                    playbackManager.setSubtitleOffset(
+                        Math.round((playbackManager.getPlayerSubtitleOffset() - .1) * 10) / 10,
+                        currentPlayer
+                    );
+                    if(subtitleSyncOverlay) {
+                        subtitleSyncOverlay.update();
+                    }
+                    break;
             }
         }
 

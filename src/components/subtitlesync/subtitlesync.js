@@ -144,6 +144,7 @@ class SubtitleSync {
     }
 
     toggle(action) {
+        this.update();
         if (player && playbackManager.supportSubtitleOffset(player)) {
             /* eslint-disable no-fallthrough */
             switch (action) {
@@ -171,6 +172,15 @@ class SubtitleSync {
                     break;
             }
             /* eslint-enable no-fallthrough */
+        }
+    }
+
+    update() {
+        if(player && playbackManager.supportSubtitleOffset(player)) {
+            let offset = playbackManager.getPlayerSubtitleOffset(player) || 0;
+            offset = Math.round(offset * 10) / 10;
+            subtitleSyncTextField.updateOffset(offset);
+            subtitleSyncSlider.updateOffset(getPercentageFromOffset(offset));
         }
     }
 }
