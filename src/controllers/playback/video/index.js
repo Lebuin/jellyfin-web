@@ -1188,19 +1188,19 @@ import { appRouter } from '../../../components/appRouter';
                 // Custom handlers
                 case 'z':
                     playbackManager.setSubtitleOffset(
-                        Math.round((playbackManager.getPlayerSubtitleOffset() + .1) * 10) / 10,
+                        Math.round((playbackManager.getPlayerSubtitleOffset() - 0.1) * 10) / 10,
                         currentPlayer
                     );
-                    if(subtitleSyncOverlay) {
+                    if (subtitleSyncOverlay) {
                         subtitleSyncOverlay.update();
                     }
                     break;
                 case 'x':
                     playbackManager.setSubtitleOffset(
-                        Math.round((playbackManager.getPlayerSubtitleOffset() - .1) * 10) / 10,
+                        Math.round((playbackManager.getPlayerSubtitleOffset() + 0.1) * 10) / 10,
                         currentPlayer
                     );
-                    if(subtitleSyncOverlay) {
+                    if (subtitleSyncOverlay) {
                         subtitleSyncOverlay.update();
                     }
                     break;
